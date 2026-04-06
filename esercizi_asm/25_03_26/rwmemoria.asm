@@ -34,7 +34,7 @@ main:
     la $t0, i
     lw $t1, 0($t0)
 
-    # calcola indirizzo B[i]
+    # calcola indirizzo B[i] --> FORMULA: indirizzo = base + (indice * 4)
     la $t2, B
     sll $t3, $t1, 2
     add $t4, $t2, $t3
@@ -53,8 +53,8 @@ main:
     la $s0, A
     li $s1, 99
     sll $s2, $s1, 2       # offset = 99 * 4 = 396
-    add $s3, $s0, $s2
-    sw $t9, 0($s3)
+    add $s3, $s0, $s2     # A[99] = base + (indice * 4)
+    sw $t9, 0($s3)        # all'indirizzo di A[99] carica il risultato
 
     # termina programma
     li $v0, 10
